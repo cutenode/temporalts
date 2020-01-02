@@ -1,6 +1,6 @@
 const lts = require('../')
 
-async function log () {
+async function prettyPrint () {
     const version = 'v12'
     const data = await lts(version)
 
@@ -9,4 +9,4 @@ async function log () {
     console.log()
 }
 
-log()
+prettyPrint()
