@@ -15,13 +15,19 @@ async function buildData(version) {
                 ltsTime.now = moment()
                 ltsTime.timeframeStart = moment(value.lts)
                 ltsTime.timeframeEnd = moment(value.end)
+
                 ltsTime.diffStartAndEnd = ltsTime.timeframeEnd.diff(ltsTime.timeframeStart)
+                ltsTime.diffNowAndStart = ltsTime.now.diff(ltsTime.timeframeStart)
                 ltsTime.diffNowAndEnd = ltsTime.timeframeEnd.diff(ltsTime.now)
+
                 ltsTime.onePercentOfLTSLifeSpanInMilliseconds = ltsTime.diffStartAndEnd / 100
                 ltsTime.onePercentOfLTSLifeSpanInDays = ltsTime.onePercentOfLTSLifeSpanInMilliseconds / 1000 / 60 / 60 / 24
-                ltsTime.currentPercentOfLTSLifeSpan = ltsTime.diffNowAndEnd / ltsTime.onePercentOfLTSLifeSpanInMilliseconds
+
+                ltsTime.currentPercentOfLTSLifeSpan = ltsTime.diffNowAndStart / ltsTime.onePercentOfLTSLifeSpanInMilliseconds
                 ltsTime.currentPercentOfLTSLifeSpanWithoutDecimal = Math.trunc(ltsTime.currentPercentOfLTSLifeSpan)
+                
                 ltsTime.currentPercentOfLTSLifeSpanAsProgressBar = await buildPercentage(ltsTime.currentPercentOfLTSLifeSpan)
+
                 ltsTime.fromNowToEnd = ltsTime.timeframeEnd.fromNow()
                 ltsTime.fromLTSStartToNow = ltsTime.timeframeStart.fromNow()
 

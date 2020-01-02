@@ -8,12 +8,12 @@ async function buildPercentage (decimal) {
     const futureResult = '[                    ]' // result to return if we've not yet started an LTS line
     const pastResult = '[====================]' // result to return if we've already passed an LTS line's EOL
 
-    if (decimal > 100) { // this will be true when we come across an LTS line that does not yet exist and the percent through the lifespan is greater than 100%1
-        return futureResult
+    if (decimal > 100) { // this will be true once a release line is EOL 
+        return pastResult
     }
 
-    if (decimal < 0) { // this will be true when a percentage is negative - basically, once a release line is EOL
-        return pastResult
+    if (decimal < 0) { // this will be true when we come across an LTS line that does not yet exist
+        return futureResult
     }
 
     const oneFifthOfNumber = decimal / 5
