@@ -10,6 +10,14 @@
     "nodejs",
     "node"
   ],
+  "files": [
+    "exports/",
+    "helpers/",
+    "CODE_OF_CONDUCT.md",
+    "index.js",
+    "LICENSE.md",
+    "README.md"
+  ],
   "author": "Tierney Cyren",
   "license": "MIT",
   "description": "temporalts is a module that leverages [Moment](https://www.npmjs.com/package/moment) (apologies, Maggie!) and the [schedule.json](https://github.com/nodejs/Release/blob/master/schedule.json) file published in the Node.js Release WG repo to generate temporal information about Node.js release lines.",
