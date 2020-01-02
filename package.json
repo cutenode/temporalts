@@ -1,0 +1,20 @@
+{
+  "name": "lts-progress",
+  "version": "1.0.0",
+  "main": "exports/lts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lts",
+    "nodejs",
+    "node"
+  ],
+  "author": "Tierney Cyren",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "bent": "^7.0.4",
+    "moment": "^2.24.0"
+  }
+}
