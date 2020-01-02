@@ -1,4 +1,4 @@
-temporalts = require('../')
+const temporalts = require('../')
 
 async function timeUntilEachLineGoesEOL () {
   const lts = await temporalts()
