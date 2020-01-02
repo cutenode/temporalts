@@ -40,11 +40,11 @@ You can pass a version as an argument to `temporalts()` that will then only reso
 
 
 ```js
-const lts = require('../')
+const temporalts = require('../')
 
 async function prettyPrint () {
   const version = 'v12'
-    const data = await lts(version)
+    const data = await temporalts(version)
 
     console.log
     console.log(`We are ${data.currentPercentOfLTSLifeSpanWithoutDecimal}% through the lifespan of the Node.js ${version} LTS release line.\n${data.currentPercentOfLTSLifeSpanAsProgressBar}`)
