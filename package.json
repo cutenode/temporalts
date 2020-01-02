@@ -12,9 +12,21 @@
   ],
   "author": "Tierney Cyren",
   "license": "MIT",
-  "description": "",
+  "description": "temporalts is a module that leverages [Moment](https://www.npmjs.com/package/moment) (apologies, Maggie!) and the [schedule.json](https://github.com/nodejs/Release/blob/master/schedule.json) file published in the Node.js Release WG repo to generate temporal information about Node.js release lines.",
   "dependencies": {
     "bent": "^7.0.4",
     "moment": "^2.24.0"
-  }
+  },
+  "directories": {
+    "example": "examples"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cutenode/temporalts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cutenode/temporalts/issues"
+  },
+  "homepage": "https://github.com/cutenode/temporalts#readme"
 }
