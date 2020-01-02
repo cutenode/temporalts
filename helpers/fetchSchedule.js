@@ -12,4 +12,4 @@ async function fetchSchedule (url) {
   }
 }
 
-module.exports = fetchSchedule
+module.exports.fetchSchedule = fetchSchedule

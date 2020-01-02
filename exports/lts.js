@@ -1,12 +1,15 @@
 const moment = require('moment')
-const buildPercentage = require('../helpers/percentage')
-const fetchSchedule = require('../helpers/fetchSchedule')
+const { buildPercentage } = require('../helpers/percentage')
+const { parseVersion } = require('../helpers/version')
+const { fetchSchedule } = require('../helpers/fetchSchedule')
 
-async function buildData (version) {
+async function buildData (version = 'all') {
+  const versionDataURL = 'https://raw.githubusercontent.com/nodejs/Release/master/schedule.json'
   try {
-    const data = await fetchSchedule('https://raw.githubusercontent.com/nodejs/Release/master/schedule.json')
+    const data = await fetchSchedule(versionDataURL)
 
     const restructure = {}
+    const releaseVersion = parseVersion(version)
 
     for (const [key, value] of Object.entries(data)) {
       if (value.lts !== undefined) {
@@ -35,19 +38,16 @@ async function buildData (version) {
       }
     }
 
-    if (version) {
-      if (restructure[version] === undefined) {
-        const error = new Error('The version you passed is not in the dataset. Please ensure that the version you passed is a valid Node.js version that is not super far in the future and has a \'v\' before it.')
-
-        throw error
+    if (releaseVersion === 'all') {
+      return restructure
+    } else {
+      if (restructure[releaseVersion] === undefined) {
+        throw new Error(`${releaseVersion} is not a valid maintained release line in Node.js.`)
       }
-
-      return restructure[version]
+      return restructure[releaseVersion]
     }
-
-    return restructure
   } catch (error) {
-    console.log('There was an error in the called URL. Please ensure the URL is correct. Here\'s the full error:\n\n', error)
+    console.error(`Unable to fetch data from ${versionDataURL}\n\n`, error)
   }
 }
 

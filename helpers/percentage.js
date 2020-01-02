@@ -31,4 +31,4 @@ async function buildPercentage (decimal) {
   return result
 }
 
-module.exports = buildPercentage
+module.exports.buildPercentage = buildPercentage
