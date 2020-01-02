@@ -1,3 +1,3 @@
-const lts = require('exports/lts.js')
+const lts = require('./exports/lts.js')
 
 module.exports = lts
